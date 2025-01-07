@@ -1,25 +1,19 @@
-local resultado_aleatorio = math.random(1,100)
-
-local escolha_do_jogador = 0
-
-
-print("Adivinhe o numero entre 1 e 100")
-
-function jogo ()
-    print("Digite um numero: ")
-    io.read(escolha_do_jogador)
-    return escolha_do_jogador   
+local numero_digitado = 0
+local tentativas=0
+function verificacao ( numero_digitado )
+    if numero_digitado % 2 == 0 then
+        print("o numero é par")
+        tentativas = tentativas +1
+    else
+        print("o numero impar, suas tentativas foram: ".. tentativas)
+        
+    end
 end
 
-function verificacao()
-    if jogo() == resultado_aleatorio then
-        print("Parabens, voce acertou")
-    elseif jogo() > resultado_aleatorio then
-        print("O numero e menor")
-    else
-        print("O numero e maior")
-    end
+while tentativas <10 do
+    print("digite um numero : ")
+    numero_digitado = io.read()
+
+    verificacao(numero_digitado)
     
 end
-
-verificacao()
